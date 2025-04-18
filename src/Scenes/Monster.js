@@ -15,10 +15,26 @@ class Monster extends Phaser.Scene {
         this.hornY = this.bodyY - 210;
 
         this.headL_X = this.bodyX + 39, this.headR_X = this.bodyX - 39;
-        this.headY = this.bodyY-140;
+        this.headY = this.bodyY - 140;
 
         this.eyeDetailL_X = this.bodyX + 38; this.eyeDetailR_X = this.bodyX - 38;
         this.eyeDetailL_Y = this.bodyY - 175; this.eyeDetailR_Y = this.body - 147;
+
+        this.eyeL_X = this.bodyX + 33; this.eyeR_X = this.bodyX - 33;
+        this.eyeY = this.bodyY - 160;
+
+        this.noseX = this.bodyX;
+        this.noseY = this.bodyY - 56;
+
+        this.mouthX = this.bodyX;
+        this.smileY = this.bodyY - 28;
+        this.fangsY = this.bodyY - 21;
+
+        this.armL_X = this.bodyX + 99, this.armR_X = this.bodyX - 45;
+        this.armY = this.bodyY + 140;
+
+        this.legL_X = this.bodyX + 45, this.legR_X = this.bodyX - 45;
+        this.legY = this.bodyY + 140;
         
     }
 
@@ -71,12 +87,12 @@ class Monster extends Phaser.Scene {
         my.sprite.eyeR = this.add.sprite(this.bodyX-33, this.bodyY-160, "monsterParts", "eye_yellow.png");
         my.sprite.eyeR.setScale(0.6);
 
+        my.sprite.nose = this.add.sprite(this.bodyX, this.bodyY-56, "monsterParts", "nose_brown.png");
+        my.sprite.nose.setScale(0.6, 0.8);
+
         my.sprite.smile = this.add.sprite(this.bodyX, this.bodyY-28, "monsterParts", "mouthC.png");
         my.sprite.fangs = this.add.sprite(this.bodyX, this.bodyY-21, "monsterParts", "mouthF.png");
         my.sprite.fangs.visible = false;
-
-        my.sprite.nose = this.add.sprite(this.bodyX, this.bodyY-56, "monsterParts", "nose_brown.png");
-        my.sprite.nose.setScale(0.6, 0.8);
 
         my.sprite.armL = this.add.sprite(this.bodyX+99, this.bodyY+18, "monsterParts", "arm_whiteA.png");
         my.sprite.armR = this.add.sprite(this.bodyX-99, this.bodyY+18, "monsterParts", "arm_redA.png");
