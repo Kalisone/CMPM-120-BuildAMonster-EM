@@ -58,7 +58,9 @@ class Monster extends Phaser.Scene {
         my.sprite.eyeR = this.add.sprite(this.bodyX-33, this.bodyY-160, "monsterParts", "eye_yellow.png");
         my.sprite.eyeR.setScale(0.6);
 
-        my.sprite.mouth = this.add.sprite(this.bodyX, this.bodyY-28, "monsterParts", "mouthC.png");
+        my.sprite.smile = this.add.sprite(this.bodyX, this.bodyY-28, "monsterParts", "mouthC.png");
+        my.sprite.fangs = this.add.sprite(this.bodyX, this.bodyY-21, "monsterParts", "mouthF.png");
+        my.sprite.fangs.visible = false;
 
         my.sprite.nose = this.add.sprite(this.bodyX, this.bodyY-56, "monsterParts", "nose_brown.png");
         my.sprite.nose.setScale(0.6, 0.8);
@@ -70,6 +72,17 @@ class Monster extends Phaser.Scene {
         my.sprite.legL = this.add.sprite(this.bodyX+45, this.bodyY+140, "monsterParts", "leg_redA.png");
         my.sprite.legR = this.add.sprite(this.bodyX-45, this.bodyY+140, "monsterParts", "leg_redA.png");
         my.sprite.legR.flipX = true;
+
+        // event handler for smiling
+        this.input.keyboard.on('keydown-S', () => {
+            my.sprite.smile.visible = true;
+            my.sprite.fangs.visible = false;
+        });
+
+        this.input.keyboard.on('keydown-F', () => {
+            my.sprite.smile.visible = false;
+            my.sprite.fangs.visible = true;
+        });
     }
 
     update() {
