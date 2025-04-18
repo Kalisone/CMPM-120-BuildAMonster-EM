@@ -7,6 +7,18 @@ class Monster extends Phaser.Scene {
         //Create constants for the monster location
         this.bodyX = 300;
         this.bodyY = 350;
+
+        this.earL_X = this.bodyX + 75, this.earR_X = this.bodyX - 75;
+        this.earY = this.bodyY - 123;
+
+        this.hornL_X = this.bodyX + 69, this.hornR_X = this.bodyX - 69;
+        this.hornY = this.bodyY - 210;
+
+        this.headL_X = this.bodyX + 39, this.headR_X = this.bodyX - 39;
+        this.headY = this.bodyY-140;
+
+        this.eyeDetailL_X = this.bodyX + 38; this.eyeDetailR_X = this.bodyX - 38;
+        this.eyeDetailL_Y = this.bodyY - 175; this.eyeDetailR_Y = this.body - 147;
         
     }
 
@@ -49,10 +61,10 @@ class Monster extends Phaser.Scene {
         my.sprite.headR = this.add.sprite(this.bodyX-39, this.bodyY-140, "monsterParts", "body_redE.png");
         my.sprite.headR.setScale(0.55, 0.7);
         
-        my.sprite.eyeL_detail = this.add.sprite(this.bodyX+38, this.bodyY-175, "monsterParts", "detail_dark_eye.png");
-        my.sprite.eyeL_detail.flipY = true;
-        my.sprite.eyeL_detail.flipX = true;
-        my.sprite.eyeR_detail = this.add.sprite(this.bodyX-38, this.bodyY-147, "monsterParts", "detail_dark_eye.png");
+        my.sprite.eyeDetailL = this.add.sprite(this.bodyX+38, this.bodyY-175, "monsterParts", "detail_dark_eye.png");
+        my.sprite.eyeDetailL.flipY = true;
+        my.sprite.eyeDetailL.flipX = true;
+        my.sprite.eyeDetailR = this.add.sprite(this.bodyX-38, this.bodyY-147, "monsterParts", "detail_dark_eye.png");
 
         my.sprite.eyeL = this.add.sprite(this.bodyX+33, this.bodyY-160, "monsterParts", "eye_yellow.png");
         my.sprite.eyeL.setScale(0.6);
@@ -99,7 +111,7 @@ class Monster extends Phaser.Scene {
 
         if(this.dKey.isDown && !this.aKey.isDown){
         }else{
-            
+
         }
     }
 
