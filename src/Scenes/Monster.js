@@ -18,7 +18,7 @@ class Monster extends Phaser.Scene {
         this.headY = this.bodyY - 140;
 
         this.eyeDetailL_X = this.bodyX + 38; this.eyeDetailR_X = this.bodyX - 38;
-        this.eyeDetailL_Y = this.bodyY - 175; this.eyeDetailR_Y = this.body - 147;
+        this.eyeDetailL_Y = this.bodyY - 175; this.eyeDetailR_Y = this.bodyY - 147;
 
         this.eyeL_X = this.bodyX + 33; this.eyeR_X = this.bodyX - 33;
         this.eyeY = this.bodyY - 160;
@@ -30,8 +30,8 @@ class Monster extends Phaser.Scene {
         this.smileY = this.bodyY - 28;
         this.fangsY = this.bodyY - 21;
 
-        this.armL_X = this.bodyX + 99, this.armR_X = this.bodyX - 45;
-        this.armY = this.bodyY + 140;
+        this.armL_X = this.bodyX + 99, this.armR_X = this.bodyX - 99;
+        this.armY = this.bodyY + 18;
 
         this.legL_X = this.bodyX + 45, this.legR_X = this.bodyX - 45;
         this.legY = this.bodyY + 140;
@@ -61,45 +61,45 @@ class Monster extends Phaser.Scene {
         // look in spritesheet_default.xml for the individual sprite names
         // You can also download the asset pack and look in the PNG/default folder.
 
-        my.sprite.earL = this.add.sprite(this.bodyX+75, this.bodyY-123, "monsterParts", "detail_dark_ear.png");
-        my.sprite.earR = this.add.sprite(this.bodyX-75, this.bodyY-123, "monsterParts", "detail_dark_ear.png");
+        my.sprite.earL = this.add.sprite(this.earL_X, this.earY, "monsterParts", "detail_dark_ear.png");
+        my.sprite.earR = this.add.sprite(this.earR_X, this.earY, "monsterParts", "detail_dark_ear.png");
         my.sprite.earR.flipX = true;
 
-        my.sprite.hornL = this.add.sprite(this.bodyX+69, this.bodyY-210, "monsterParts", "detail_dark_horn_large.png");
-        my.sprite.hornR = this.add.sprite(this.bodyX-69, this.bodyY-210, "monsterParts", "detail_dark_horn_large.png");
+        my.sprite.hornL = this.add.sprite(this.hornL_X, this.hornY, "monsterParts", "detail_dark_horn_large.png");
+        my.sprite.hornR = this.add.sprite(this.hornR_X, this.hornY, "monsterParts", "detail_dark_horn_large.png");
         my.sprite.hornR.flipX = true;
 
         my.sprite.body = this.add.sprite(this.bodyX, this.bodyY, "monsterParts", "body_greenD.png");
         my.sprite.body.flipY = true;
 
-        my.sprite.headL = this.add.sprite(this.bodyX+39, this.bodyY-140, "monsterParts", "body_redE.png");
+        my.sprite.headL = this.add.sprite(this.headL_X, this.headY, "monsterParts", "body_redE.png");
         my.sprite.headL.setScale(0.55, 0.7);
-        my.sprite.headR = this.add.sprite(this.bodyX-39, this.bodyY-140, "monsterParts", "body_redE.png");
+        my.sprite.headR = this.add.sprite(this.headR_X, this.headY, "monsterParts", "body_redE.png");
         my.sprite.headR.setScale(0.55, 0.7);
         
-        my.sprite.eyeDetailL = this.add.sprite(this.bodyX+38, this.bodyY-175, "monsterParts", "detail_dark_eye.png");
+        my.sprite.eyeDetailL = this.add.sprite(this.eyeDetailL_X, this.eyeDetailL_Y, "monsterParts", "detail_dark_eye.png");
         my.sprite.eyeDetailL.flipY = true;
         my.sprite.eyeDetailL.flipX = true;
-        my.sprite.eyeDetailR = this.add.sprite(this.bodyX-38, this.bodyY-147, "monsterParts", "detail_dark_eye.png");
+        my.sprite.eyeDetailR = this.add.sprite(this.eyeDetailR_X, this.eyeDetailR_Y, "monsterParts", "detail_dark_eye.png");
 
-        my.sprite.eyeL = this.add.sprite(this.bodyX+33, this.bodyY-160, "monsterParts", "eye_yellow.png");
+        my.sprite.eyeL = this.add.sprite(this.eyeL_X, this.eyeY, "monsterParts", "eye_yellow.png");
         my.sprite.eyeL.setScale(0.6);
-        my.sprite.eyeR = this.add.sprite(this.bodyX-33, this.bodyY-160, "monsterParts", "eye_yellow.png");
+        my.sprite.eyeR = this.add.sprite(this.eyeR_X, this.eyeY, "monsterParts", "eye_yellow.png");
         my.sprite.eyeR.setScale(0.6);
 
-        my.sprite.nose = this.add.sprite(this.bodyX, this.bodyY-56, "monsterParts", "nose_brown.png");
+        my.sprite.nose = this.add.sprite(this.noseX, this.noseY, "monsterParts", "nose_brown.png");
         my.sprite.nose.setScale(0.6, 0.8);
 
-        my.sprite.smile = this.add.sprite(this.bodyX, this.bodyY-28, "monsterParts", "mouthC.png");
-        my.sprite.fangs = this.add.sprite(this.bodyX, this.bodyY-21, "monsterParts", "mouthF.png");
+        my.sprite.smile = this.add.sprite(this.mouthX, this.smileY, "monsterParts", "mouthC.png");
+        my.sprite.fangs = this.add.sprite(this.mouthX, this.fangsY, "monsterParts", "mouthF.png");
         my.sprite.fangs.visible = false;
 
-        my.sprite.armL = this.add.sprite(this.bodyX+99, this.bodyY+18, "monsterParts", "arm_whiteA.png");
-        my.sprite.armR = this.add.sprite(this.bodyX-99, this.bodyY+18, "monsterParts", "arm_redA.png");
+        my.sprite.armL = this.add.sprite(this.armL_X, this.armY, "monsterParts", "arm_whiteA.png");
+        my.sprite.armR = this.add.sprite(this.armR_X, this.armY, "monsterParts", "arm_redA.png");
         my.sprite.armR.flipX = true;
 
-        my.sprite.legL = this.add.sprite(this.bodyX+45, this.bodyY+140, "monsterParts", "leg_redA.png");
-        my.sprite.legR = this.add.sprite(this.bodyX-45, this.bodyY+140, "monsterParts", "leg_redA.png");
+        my.sprite.legL = this.add.sprite(this.legL_X, this.legY, "monsterParts", "leg_redA.png");
+        my.sprite.legR = this.add.sprite(this.legR_X, this.legY, "monsterParts", "leg_redA.png");
         my.sprite.legR.flipX = true;
 
         // poller for movement
