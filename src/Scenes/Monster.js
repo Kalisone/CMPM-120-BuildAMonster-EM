@@ -36,6 +36,10 @@ class Monster extends Phaser.Scene {
         my.sprite.earR = this.add.sprite(this.bodyX*0.75, this.bodyY*0.65, "monsterParts", "detail_dark_ear.png");
         my.sprite.earR.flipX = true;
 
+        my.sprite.hornL = this.add.sprite(this.bodyX*1.23, this.bodyY*0.4, "monsterParts", "detail_dark_horn_large.png");
+        my.sprite.hornR = this.add.sprite(this.bodyX*0.77, this.bodyY*0.4, "monsterParts", "detail_dark_horn_large.png");
+        my.sprite.hornR.flipX = true;
+
         my.sprite.body = this.add.sprite(this.bodyX, this.bodyY, "monsterParts", "body_greenD.png");
         my.sprite.body.flipY = true;
 
