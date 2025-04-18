@@ -2,6 +2,7 @@ class Monster extends Phaser.Scene {
     constructor() {
         super("monsterScene");
         this.my = {sprite: {}};  // Create an object to hold sprite bindings
+        this.aKey = null, this.dKey = null;
 
         //Create constants for the monster location
         this.bodyX = 300;
@@ -73,6 +74,10 @@ class Monster extends Phaser.Scene {
         my.sprite.legR = this.add.sprite(this.bodyX-45, this.bodyY+140, "monsterParts", "leg_redA.png");
         my.sprite.legR.flipX = true;
 
+        // poller for movement
+        this.aKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        this.dKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        
         // event handler for smiling
         this.input.keyboard.on('keydown-S', () => {
             my.sprite.smile.visible = true;
@@ -88,7 +93,14 @@ class Monster extends Phaser.Scene {
     update() {
         let my = this.my;    // create an alias to this.my for readability
 
-       
+        if(this.aKey.isDown && !this.dKey.isDown){
+        }else{
+        }
+
+        if(this.dKey.isDown && !this.aKey.isDown){
+        }else{
+            
+        }
     }
 
 }
