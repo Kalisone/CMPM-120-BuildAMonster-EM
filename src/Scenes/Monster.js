@@ -59,8 +59,8 @@ class Monster extends Phaser.Scene {
         my.sprite.nose = this.add.sprite(this.bodyX, this.bodyY*0.84, "monsterParts", "nose_brown.png");
         my.sprite.nose.setScale(0.6, 0.8);
 
-        my.sprite.armL = this.add.sprite(this.bodyX*1.3, this.bodyY, "monsterParts", "arm_whiteA.png");
-        my.sprite.armR = this.add.sprite(this.bodyX*0.7, this.bodyY, "monsterParts", "arm_redA.png");
+        my.sprite.armL = this.add.sprite(this.bodyX*1.33, this.bodyY*1.05, "monsterParts", "arm_whiteA.png");
+        my.sprite.armR = this.add.sprite(this.bodyX*0.67, this.bodyY*1.05, "monsterParts", "arm_redA.png");
         my.sprite.armR.flipX = true;
 
         my.sprite.legL = this.add.sprite(this.bodyX*1.15, this.bodyY*1.4, "monsterParts", "leg_redA.png");
