@@ -4,38 +4,49 @@ class Monster extends Phaser.Scene {
         this.my = {sprite: {}};  // Create an object to hold sprite bindings
         this.aKey = null, this.dKey = null;
 
-        //Create constants for the monster location
+        // COORDS
+        // Body
         this.bodyX = 300;
         this.bodyY = 350;
 
+        // Ears
         this.earL_X = this.bodyX + 75, this.earR_X = this.bodyX - 75;
         this.earY = this.bodyY - 123;
         
+        // Horns
         this.hornL_X = this.bodyX + 69, this.hornR_X = this.bodyX - 69;
         this.hornY = this.bodyY - 210;
 
+        // Head
         this.headL_X = this.bodyX + 39, this.headR_X = this.bodyX - 39;
         this.headY = this.bodyY - 140;
 
+        // Eye Details (eyestalks)
         this.eyeDtlStalkL_X = this.bodyX + 38; this.eyeDtlStalkR_X = this.bodyX - 38;
-        this.eyeDtlStalkL_Y = this.bodyY - 175; this.eyeDtlStalkR_Y = this.bodyY - 147;
+        this.eyeDtlStalkL_Y = this.bodyY - 176; this.eyeDtlStalkR_Y = this.bodyY - 146;
 
+        // Eyes
         this.eyeL_X = this.bodyX + 33; this.eyeR_X = this.bodyX - 33;
-        this.eyeY = this.bodyY - 160;
+        this.eyeY = this.bodyY - 162;
 
-        this.eyeDtlHornL_X = this.eyeL_X - 20, this.eyeDtlHornR_X = this.eyeR_X + 20;
-        this.eyeDtlHornL_Y = this.eyeY + 20, this.eyeDtlHornR_Y = this.eyeY - 20;
+        // Eye Details (horns)
+        this.eyeDtlHornL_X = this.bodyX + 15, this.eyeDtlHornR_X = this.bodyX - 15;
+        this.eyeDtlHornL_Y = this.bodyY - 143, this.eyeDtlHornR_Y = this.bodyY - 180;
 
+        // Nose
         this.noseX = this.bodyX;
         this.noseY = this.bodyY - 56;
 
+        // Mouth
         this.mouthX = this.bodyX;
         this.smileY = this.bodyY - 28;
         this.fangsY = this.bodyY - 21;
 
+        // Arms
         this.armL_X = this.bodyX + 99, this.armR_X = this.bodyX - 99;
         this.armY = this.bodyY + 18;
 
+        // Legs
         this.legL_X = this.bodyX + 45, this.legR_X = this.bodyX - 45;
         this.legY = this.bodyY + 140;
     }
@@ -99,8 +110,10 @@ class Monster extends Phaser.Scene {
 
         // Eyes
         my.sprite.eyeL = this.add.sprite(this.eyeL_X, this.eyeY, "monsterParts", "eye_yellow.png");
+        my.sprite.eyeL.flipY = true;
         my.sprite.eyeL.setScale(0.6);
         my.sprite.eyeR = this.add.sprite(this.eyeR_X, this.eyeY, "monsterParts", "eye_yellow.png");
+        my.sprite.eyeR.flipY = true;
         my.sprite.eyeR.setScale(0.6);
 
         // Nose
