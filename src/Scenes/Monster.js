@@ -23,15 +23,15 @@ class Monster extends Phaser.Scene {
 
         // Eye Details (eyestalks)
         this.eyeDtlStalkL_X = this.bodyX + 38; this.eyeDtlStalkR_X = this.bodyX - 38;
-        this.eyeDtlStalkL_Y = this.bodyY - 176; this.eyeDtlStalkR_Y = this.bodyY - 146;
+        this.eyeDtlStalkL_Y = this.bodyY - 136; this.eyeDtlStalkR_Y = this.bodyY - 106;
 
         // Eyes
         this.eyeL_X = this.bodyX + 33; this.eyeR_X = this.bodyX - 33;
-        this.eyeY = this.bodyY - 162;
+        this.eyeY = this.bodyY - 122;
 
         // Eye Details (horns)
         this.eyeDtlHornL_X = this.bodyX + 15, this.eyeDtlHornR_X = this.bodyX - 15;
-        this.eyeDtlHornL_Y = this.bodyY - 143, this.eyeDtlHornR_Y = this.bodyY - 180;
+        this.eyeDtlHornL_Y = this.bodyY - 103, this.eyeDtlHornR_Y = this.bodyY - 140;
 
         // Nose
         this.noseX = this.bodyX;
@@ -39,8 +39,8 @@ class Monster extends Phaser.Scene {
 
         // Mouth
         this.mouthX = this.bodyX;
-        this.smileY = this.bodyY - 28;
-        this.fangsY = this.bodyY - 21;
+        this.smileY = this.bodyY + 21;
+        this.fangsY = this.bodyY + 14;
 
         // Arms
         this.armL_X = this.bodyX + 99, this.armR_X = this.bodyX - 99;
@@ -48,7 +48,7 @@ class Monster extends Phaser.Scene {
 
         // Legs
         this.legL_X = this.bodyX + 45, this.legR_X = this.bodyX - 45;
-        this.legY = this.bodyY + 140;
+        this.legY = this.bodyY + 150;
     }
 
     // Use preload to load art and sound assets before the scene starts running.
@@ -122,7 +122,9 @@ class Monster extends Phaser.Scene {
 
         // Mouth
         my.sprite.smile = this.add.sprite(this.mouthX, this.smileY, "monsterParts", "mouthC.png");
+        my.sprite.smile.setScale(1.8);
         my.sprite.fangs = this.add.sprite(this.mouthX, this.fangsY, "monsterParts", "mouthF.png");
+        my.sprite.fangs.setScale(1.8);
         my.sprite.fangs.visible = false;
 
         // Arms
