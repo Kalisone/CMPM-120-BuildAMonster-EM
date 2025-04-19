@@ -35,7 +35,6 @@ class Monster extends Phaser.Scene {
 
         this.legL_X = this.bodyX + 45, this.legR_X = this.bodyX - 45;
         this.legY = this.bodyY + 140;
-        
     }
 
     // Use preload to load art and sound assets before the scene starts running.
@@ -61,43 +60,53 @@ class Monster extends Phaser.Scene {
         // look in spritesheet_default.xml for the individual sprite names
         // You can also download the asset pack and look in the PNG/default folder.
 
+        // Ears
         my.sprite.earL = this.add.sprite(this.earL_X, this.earY, "monsterParts", "detail_dark_ear.png");
         my.sprite.earR = this.add.sprite(this.earR_X, this.earY, "monsterParts", "detail_dark_ear.png");
         my.sprite.earR.flipX = true;
 
+        // Horns
         my.sprite.hornL = this.add.sprite(this.hornL_X, this.hornY, "monsterParts", "detail_dark_horn_large.png");
         my.sprite.hornR = this.add.sprite(this.hornR_X, this.hornY, "monsterParts", "detail_dark_horn_large.png");
         my.sprite.hornR.flipX = true;
 
+        // Body
         my.sprite.body = this.add.sprite(this.bodyX, this.bodyY, "monsterParts", "body_greenD.png");
         my.sprite.body.flipY = true;
 
+        // Heads
         my.sprite.headL = this.add.sprite(this.headL_X, this.headY, "monsterParts", "body_redE.png");
         my.sprite.headL.setScale(0.55, 0.7);
         my.sprite.headR = this.add.sprite(this.headR_X, this.headY, "monsterParts", "body_redE.png");
         my.sprite.headR.setScale(0.55, 0.7);
         
+        // Eye details
         my.sprite.eyeDetailL = this.add.sprite(this.eyeDetailL_X, this.eyeDetailL_Y, "monsterParts", "detail_dark_eye.png");
         my.sprite.eyeDetailL.flipY = true;
         my.sprite.eyeDetailL.flipX = true;
         my.sprite.eyeDetailR = this.add.sprite(this.eyeDetailR_X, this.eyeDetailR_Y, "monsterParts", "detail_dark_eye.png");
 
+        // Eyes
         my.sprite.eyeL = this.add.sprite(this.eyeL_X, this.eyeY, "monsterParts", "eye_yellow.png");
         my.sprite.eyeL.setScale(0.6);
         my.sprite.eyeR = this.add.sprite(this.eyeR_X, this.eyeY, "monsterParts", "eye_yellow.png");
         my.sprite.eyeR.setScale(0.6);
 
+        // Nose
         my.sprite.nose = this.add.sprite(this.noseX, this.noseY, "monsterParts", "nose_brown.png");
         my.sprite.nose.setScale(0.6, 0.8);
 
+        // Mouth
         my.sprite.smile = this.add.sprite(this.mouthX, this.smileY, "monsterParts", "mouthC.png");
         my.sprite.fangs = this.add.sprite(this.mouthX, this.fangsY, "monsterParts", "mouthF.png");
         my.sprite.fangs.visible = false;
 
+        // Arms
         my.sprite.armL = this.add.sprite(this.armL_X, this.armY, "monsterParts", "arm_whiteA.png");
         my.sprite.armR = this.add.sprite(this.armR_X, this.armY, "monsterParts", "arm_redA.png");
         my.sprite.armR.flipX = true;
 
+        // Legs
         my.sprite.legL = this.add.sprite(this.legL_X, this.legY, "monsterParts", "leg_redA.png");
         my.sprite.legR = this.add.sprite(this.legR_X, this.legY, "monsterParts", "leg_redA.png");
         my.sprite.legR.flipX = true;
@@ -106,7 +115,7 @@ class Monster extends Phaser.Scene {
         this.aKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.dKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         
-        // event handler for smiling
+        // event handlers for mouth
         this.input.keyboard.on('keydown-S', () => {
             my.sprite.smile.visible = true;
             my.sprite.fangs.visible = false;
@@ -122,12 +131,15 @@ class Monster extends Phaser.Scene {
         let my = this.my;    // create an alias to this.my for readability
 
         if(this.aKey.isDown && !this.dKey.isDown){
-        }else{
+            for (let part in my.sprite) {
+                my.sprite[part].x -= 2;
+            }
         }
 
         if(this.dKey.isDown && !this.aKey.isDown){
-        }else{
-
+            for (let part in my.sprite) {
+                my.sprite[part].x += 2;
+            }
         }
     }
 
