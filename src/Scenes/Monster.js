@@ -11,9 +11,6 @@ class Monster extends Phaser.Scene {
         this.earL_X = this.bodyX + 75, this.earR_X = this.bodyX - 75;
         this.earY = this.bodyY - 123;
 
-        this.hornL_X = this.bodyX + 69, this.hornR_X = this.bodyX - 69;
-        this.hornY = this.bodyY - 210;
-
         this.headL_X = this.bodyX + 39, this.headR_X = this.bodyX - 39;
         this.headY = this.bodyY - 140;
 
@@ -22,6 +19,9 @@ class Monster extends Phaser.Scene {
 
         this.eyeL_X = this.bodyX + 33; this.eyeR_X = this.bodyX - 33;
         this.eyeY = this.bodyY - 160;
+
+        this.hornL_X = this.eyeL_X - 20, this.hornR_X = this.eyeR_X + 20;
+        this.hornL_Y = this.eyeY + 20, this.hornR_Y = this.eyeY - 20;
 
         this.noseX = this.bodyX;
         this.noseY = this.bodyY - 56;
@@ -65,11 +65,6 @@ class Monster extends Phaser.Scene {
         my.sprite.earR = this.add.sprite(this.earR_X, this.earY, "monsterParts", "detail_dark_ear.png");
         my.sprite.earR.flipX = true;
 
-        // Horns
-        my.sprite.hornL = this.add.sprite(this.hornL_X, this.hornY, "monsterParts", "detail_dark_horn_large.png");
-        my.sprite.hornR = this.add.sprite(this.hornR_X, this.hornY, "monsterParts", "detail_dark_horn_large.png");
-        my.sprite.hornR.flipX = true;
-
         // Body
         my.sprite.body = this.add.sprite(this.bodyX, this.bodyY, "monsterParts", "body_greenD.png");
         my.sprite.body.flipY = true;
@@ -80,11 +75,20 @@ class Monster extends Phaser.Scene {
         my.sprite.headR = this.add.sprite(this.headR_X, this.headY, "monsterParts", "body_redE.png");
         my.sprite.headR.setScale(0.55, 0.7);
         
-        // Eye details
+        // Eye Details (eyestalk)
         my.sprite.eyeDetailL = this.add.sprite(this.eyeDetailL_X, this.eyeDetailL_Y, "monsterParts", "detail_dark_eye.png");
         my.sprite.eyeDetailL.flipY = true;
         my.sprite.eyeDetailL.flipX = true;
         my.sprite.eyeDetailR = this.add.sprite(this.eyeDetailR_X, this.eyeDetailR_Y, "monsterParts", "detail_dark_eye.png");
+
+        // Eye Details (horns)
+        my.sprite.hornL = this.add.sprite(this.hornL_X, this.hornL_Y, "monsterParts", "detail_dark_horn_large.png");
+        my.sprite.hornL.flipY = true;
+        my.sprite.hornL.flipX = true;
+        my.sprite.hornL.setScale(0.6, 0.6);
+        my.sprite.hornR = this.add.sprite(this.hornR_X, this.hornR_Y, "monsterParts", "detail_dark_horn_large.png");
+        my.sprite.hornR.setScale(0.6, 0.6);
+
 
         // Eyes
         my.sprite.eyeL = this.add.sprite(this.eyeL_X, this.eyeY, "monsterParts", "eye_yellow.png");
